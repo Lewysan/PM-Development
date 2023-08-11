@@ -18,7 +18,7 @@ class TestCommand extends Command implements PluginOwned {
     }
 
     public function __construct(Plugin $p){
-        parent::__construct("pin", "", null, []);
+        parent::__construct("num", "", null, []);
         $this->__trail($p);
     }
 
@@ -29,7 +29,7 @@ class TestCommand extends Command implements PluginOwned {
         if (count($args) < 1 || empty($staff)){
             $this->usageCommand($sender);
         } 
-        if ($args[0] != "contrasenia"){
+        if ($args[0] != "144467"){
              $this->wrongPassword($sender);
         } else {
             $this->successfulyAuth($sender);
@@ -39,13 +39,13 @@ class TestCommand extends Command implements PluginOwned {
         $sender->sendMessage(TextFormat::RED."No tienes permiso para ejeuctar este comando .v");
     }
     public function usageCommand(CommandSender $sender){
-        $sender->sendMessage(TextFormat::RED."Uso: /pin <PIN>");
+        $sender->sendMessage(TextFormat::RED."Uso: /num <numero>");
     }
     public function wrongPassword(CommandSender $sender){
-        $sender->sendMessage(TextFormat::RED."PIN incorrecto.");
+        $sender->sendMessage(TextFormat::RED."Numero incorrecto.");
     }
     public function successfulyAuth(CommandSender $sender){
         unset(PlayerListener::$staff[$sender->getName()]);
-        $sender->sendMessage(TextFormat::GREEN."PIN correcto.");
+        $sender->sendMessage(TextFormat::GREEN."Numero correcto.");
     }
 }
