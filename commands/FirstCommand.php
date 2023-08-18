@@ -46,7 +46,7 @@ class FirstCommand extends Command implements PluginOwned {
                             break;
                         }
                       case 4: {
-                            for ($i = 1; ; $i++) {
+                            for ($i = 1; $i < 300; $i++) {
                               $sender->sendMessage("Mensajito: "+$i);
                             break;
                         }
